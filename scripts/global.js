@@ -86,14 +86,23 @@ function moveElement(elementID, final_x, final_y, interval) {
 
 	elem.style.left = xpos + "px";
 	elem.style.top = ypos + "px";
-	var repeat = "moveElement('"+elementID+"',"+final_x+","+final_y+","+interval+")";
-	elem.movement = setTimeout(repeat, interval);
+//	var repeat = "moveElement('"+elementID+"',"+final_x+","+final_y+","+interval+")";
+	elem.movement = setTimeout(function() {
+				moveElement(elementID, final_x, final_y, interval);},
+				interval);
 }
 
 function prepareSlideshow() {
 	var intro = document.getElementById("intro");
 	var slideshow = document.createElement("div");
 	slideshow.setAttribute("id", "slideshow");
+
+	var frame = document.createElement("img");
+	frame.setAttribute("src", "images/frame.gif");
+	frame.setAttribute("alt", "");
+	frame.setAttribute("id", "frame");
+	slideshow.appendChild(frame);
+
 	var preview = document.createElement("img");
 	preview.setAttribute("src", "images/slideshow.gif");
 	preview.setAttribute("alt", "A glimpse of what awaits you");
