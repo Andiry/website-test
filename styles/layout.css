@@ -88,3 +88,15 @@ article img {
     background-image: url(../images/drummer.gif);
 }
 
+#slideshow {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+#preview {
+    position: absolute;
+    border-width: 0;
+    outline-width: 0;
+}
