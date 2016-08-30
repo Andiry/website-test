@@ -92,6 +92,17 @@ function moveElement(elementID, final_x, final_y, interval) {
 				interval);
 }
 
+function setInitXpos() {
+	if (document.getElementById("about"))
+		this.style.left = "-150px";
+	if (document.getElementById("photos"))
+		this.style.left = "-300px";
+	if (document.getElementById("live"))
+		this.style.left = "-450px";
+	if (document.getElementById("contact"))
+		this.style.left = "-600px";
+}
+
 function prepareSlideshow() {
 	var intro = document.getElementById("intro");
 	var slideshow = document.createElement("div");
@@ -107,6 +118,7 @@ function prepareSlideshow() {
 	preview.setAttribute("src", "images/slideshow.gif");
 	preview.setAttribute("alt", "A glimpse of what awaits you");
 	preview.setAttribute("id", "preview");
+	setInitXpos.apply(preview);
 	slideshow.appendChild(preview);
 	insertAfter(slideshow, intro);
 
