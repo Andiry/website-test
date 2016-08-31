@@ -152,5 +152,53 @@ function showSection(id) {
 	}
 }
 
+
+function showPic(pic) {
+	var source = pic.getAttribute("href");
+	if (!document.getElementById("placeholder"))
+		prepareHolder();
+
+	var holder = document.getElementById("placeholder");
+	holder.setAttribute("src", source);
+	if (pic.getAttribute("title"))
+		var text = pic.getAttribute("title");
+	else
+		var text = "";
+
+	var desc = document.getElementById("description");
+	if (!desc)
+		return false;
+
+	if (desc.firstChild.nodeType == 3) {
+		desc.firstChild.nodeValue = text;
+		desc.style.font_size = "15px";
+	}
+	return false;
+}
+
+function prepareHolder() {
+	var holder = document.createElement("img");
+	holder.setAttribute("id", "placeholder");
+	holder.setAttribute("alt", "my image gallery");
+	var desc = document.createElement("p");
+	desc.setAttribute("id", "description");
+	var desctext = document.createTextNode("Choose an image");
+	desc.appendChild(desctext);
+	var gallery = document.getElementById("imagegallery");
+	insertAfter(desc, gallery);
+	insertAfter(holder, desc);
+}
+
+function prepareGallery() {
+	var gallery = document.getElementById("imagegallery");
+	var links = gallery.getElementsByTagName("a");
+	for (var i = 0; i < links.length; i++) {
+		links[i].onclick = function() {
+			return showPic(this);
+		}
+	}
+}
+
+addLoadEvent(prepareGallery);
 addLoadEvent(highlightPage);
 addLoadEvent(prepareSlideshow);

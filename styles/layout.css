@@ -113,3 +113,8 @@ article img {
 article section {
     display: none;
 }
+
+#imagegallery li {
+    display: inline;
+    text-decoration: none;
+}
