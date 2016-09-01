@@ -106,6 +106,10 @@ function setInitXpos() {
 function prepareSlideshow() {
 	var intro = document.getElementById("intro");
 	var slideshow = document.createElement("div");
+
+	if (!intro || !slideshow)
+		return false;
+
 	slideshow.setAttribute("id", "slideshow");
 
 	var frame = document.createElement("img");
@@ -191,6 +195,9 @@ function prepareHolder() {
 
 function prepareGallery() {
 	var gallery = document.getElementById("imagegallery");
+	if (!gallery)
+		return false;
+
 	var links = gallery.getElementsByTagName("a");
 	for (var i = 0; i < links.length; i++) {
 		links[i].onclick = function() {
