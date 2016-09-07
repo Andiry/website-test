@@ -118,3 +118,7 @@ article section {
     display: inline;
     text-decoration: none;
 }
+
+td {
+    padding: .5em 3em;
+}
